@@ -28,5 +28,12 @@ public class BultoPostal extends Correspondencia {
     public void setUrgencia(Urgencia urgencia) {
         this.urgencia = urgencia;
     }
-    
+
+    @Override
+    public double calcularPrecio() {
+        double precio = peso * 4;
+        if(urgencia == Urgencia.URGENTE) precio += 10;
+        if(urgencia == Urgencia.MEDIO) precio += 8;
+        return precio;
+    }
 }

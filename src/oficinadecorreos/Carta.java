@@ -19,7 +19,7 @@ public class Carta extends Correspondencia {
         this.fechaEnvio = fechaEnvio;
     }
 
-    public boolean isEsDelExterior() {
+    public boolean esDelExterior() {
         return esDelExterior;
     }
 
@@ -28,11 +28,12 @@ public class Carta extends Correspondencia {
     }
     
     @Override
-    public double cacularPrecio() {
-        
-        return 0;
+    public double calcularPrecio() {
+        double precio = 5;
+        if( esDelExterior() ) precio += 3;
+        return precio;
     }
-
+    
     @Override
     public String toString() {
         return "Carta{" + "fechaEnvio=" + fechaEnvio + ", esDelExterior=" + esDelExterior + '}';
