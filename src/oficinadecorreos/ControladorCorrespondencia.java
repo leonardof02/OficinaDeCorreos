@@ -76,12 +76,20 @@ public class ControladorCorrespondencia {
         return bultoRemovido;
     }
     
-    public void entregarCorrespondenciaADestinatario(String nombre, String direccionDestinatario) {
-        this.listaCorrespondencia.removeIf(
-            correspondencia -> 
-                correspondencia.nombre.equals(nombre) &&
-                correspondencia.direccionDestinatario.equals(direccionDestinatario)
-        );
+    public int entregarCorrespondenciaADestinatario(String nombre, String direccionDestinatario) {
+        Correspondencia correspondenciaARemover = null;
+        int indice = -1;
+        for( Correspondencia c : listaCorrespondencia ) {
+            if( c.nombreRemitente.equals(nombre) && c.direccionDestinatario.equals(direccionDestinatario)) {
+                correspondenciaARemover = c;
+                indice = listaCorrespondencia.indexOf(c);
+            }
+        }
+        if( correspondenciaARemover != null ) {
+            listaCorrespondencia.remove(correspondenciaARemover);
+            return indice;
+        }
+        return indice;
     }
     
     public double calcularGananciaTotal() {

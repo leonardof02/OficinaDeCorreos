@@ -5,6 +5,8 @@
 package oficinadecorreos;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -156,7 +158,17 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EntregarCorrespondenciaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntregarCorrespondenciaBtnActionPerformed
-        // TODO add your handling code here:
+        String nombre = JOptionPane.showInputDialog("A quien se le hace la entrega?");
+        String direccion = JOptionPane.showInputDialog("Inserte la direccion del destinatario");
+        
+        int indice = controladorCorrespondencia.entregarCorrespondenciaADestinatario(nombre, direccion);
+        
+        if( indice == -1 )
+            JOptionPane.showMessageDialog(null, "Lo siento no coinciden esos datos con la correspondencia");
+        
+        ((DefaultTableModel) jTable1.getModel()).removeRow(indice);
+        JOptionPane.showMessageDialog(null, "Correspondencia entregada a " + nombre + " en " + direccion);
+        
     }//GEN-LAST:event_EntregarCorrespondenciaBtnActionPerformed
 
     private void RecibirCorrespondenciaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecibirCorrespondenciaBtnActionPerformed
