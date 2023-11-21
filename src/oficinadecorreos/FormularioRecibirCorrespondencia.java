@@ -24,6 +24,7 @@ public class FormularioRecibirCorrespondencia extends javax.swing.JFrame {
     public FormularioRecibirCorrespondencia(ControladorCorrespondencia controladorCorrespondencia, TableModel tableModel) {
         initComponents();
         this.setTitle("Recibir correspondencia");
+        
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Carta", "Telegrama", "Bulto Postal"}));
         panelCarta.setVisible(false);
         panelTelegrama.setVisible(false);
@@ -143,6 +144,8 @@ public class FormularioRecibirCorrespondencia extends javax.swing.JFrame {
         );
 
         jLabel5.setText("Cantidad de palabras");
+
+        CantidadPalabrasInput.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         jLabel6.setText("Impuesto Aplicado");
 

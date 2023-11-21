@@ -22,6 +22,31 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         controladorCorrespondencia = new ControladorCorrespondencia();
         formularioRecibirCorrespondencia = new FormularioRecibirCorrespondencia( controladorCorrespondencia,this.jTable1.getModel() );
     }
+    
+    public void refrescarTabla() {
+        DefaultTableModel tabla = ((DefaultTableModel) jTable1.getModel());
+        tabla.setRowCount(0);
+        for( Correspondencia c : controladorCorrespondencia.getListaCorrespondencia() ) {
+            if( c instanceof Carta) {
+                Carta carta = (Carta) c;
+                tabla.addRow(new Object[] { carta.getNombre(), carta.getDireccionDestinatario(), carta.getNombreRemitente(), "Carta", carta.getFechaEnvio(), carta.esDelExterior() });
+            }
+            if( c instanceof Telegrama) {
+                Telegrama telegrama = (Telegrama) c;
+                tabla.addRow(new Object[] {
+                    telegrama.getNombre(), telegrama.getDireccionDestinatario(), telegrama.getNombreRemitente(), "Telegrama", null, null,
+                    telegrama.getCantidadPalabras(), telegrama.getImpuestoAplicado()
+                });
+            }
+            if( c instanceof BultoPostal) {
+                BultoPostal bulto = (BultoPostal) c;
+                tabla.addRow(new Object[] {
+                    bulto.getNombre(), bulto.getDireccionDestinatario(), bulto.getNombreRemitente(), "Bulto Postal", null, null,
+                    null, null, bulto.getPeso(), bulto.getUrgencia()
+                });
+            }
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -94,6 +119,11 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         DespacharCorrespondenciaBtn.setBackground(new java.awt.Color(255, 102, 102));
         DespacharCorrespondenciaBtn.setText("DESPACHAR CORRESPONDENCIA");
+        DespacharCorrespondenciaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DespacharCorrespondenciaBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ACCIONES");
 
@@ -178,6 +208,12 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private void CalcularGananciasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularGananciasBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CalcularGananciasBtnActionPerformed
+
+    private void DespacharCorrespondenciaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DespacharCorrespondenciaBtnActionPerformed
+        controladorCorrespondencia.despacharCorrespondencia();
+        refrescarTabla();
+        JOptionPane.showMessageDialog(null, "Ha sido despachada una correspondencia");
+    }//GEN-LAST:event_DespacharCorrespondenciaBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CalcularGananciasBtn;

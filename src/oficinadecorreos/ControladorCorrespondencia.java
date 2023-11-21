@@ -47,9 +47,10 @@ public class ControladorCorrespondencia {
         for( Correspondencia c : listaCorrespondencia ) {
             if ( c instanceof Telegrama ) {
                 telegramaRemovido = (Telegrama) c;
-                listaCorrespondencia.remove(c);
+                break;
             }
         }
+        listaCorrespondencia.remove(telegramaRemovido);
         return telegramaRemovido;
     }
     
@@ -58,9 +59,10 @@ public class ControladorCorrespondencia {
         for( Correspondencia c : listaCorrespondencia ) {
             if ( c instanceof Carta ) {
                 cartaRemovida = (Carta) c;
-                listaCorrespondencia.remove(c);
+                break;
             }
         }
+        listaCorrespondencia.remove(cartaRemovida);
         return cartaRemovida;
         
     }
@@ -70,9 +72,9 @@ public class ControladorCorrespondencia {
         for( Correspondencia c : listaCorrespondencia ) {
             if ( c instanceof BultoPostal ) {
                 bultoRemovido = (BultoPostal) c;
-                listaCorrespondencia.remove(c);
             }
         }
+        listaCorrespondencia.remove(bultoRemovido);
         return bultoRemovido;
     }
     
