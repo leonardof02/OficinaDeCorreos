@@ -2,8 +2,8 @@ package oficinadecorreos;
 
 public class Carta extends Correspondencia {
     
-    String fechaEnvio;
-    boolean esDelExterior;
+    private String fechaEnvio;
+    private boolean esDelExterior;
 
     public Carta(String fechaEnvio, boolean esDelExterior, String nombre, String direccionDestinatario, String nombreRemitente) {
         super(nombre, direccionDestinatario, nombreRemitente);

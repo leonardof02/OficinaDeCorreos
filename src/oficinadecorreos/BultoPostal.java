@@ -3,8 +3,8 @@ package oficinadecorreos;
 
 public class BultoPostal extends Correspondencia {
     
-    double peso;
-    Urgencia urgencia;
+    private double peso;
+    private Urgencia urgencia;
 
     public BultoPostal(double peso, Urgencia urgencia, String nombre, String direccionDestinatario, String nombreRemitente) {
         super(nombre, direccionDestinatario, nombreRemitente);

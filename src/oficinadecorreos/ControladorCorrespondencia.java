@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class ControladorCorrespondencia {
     
-    ArrayList<Correspondencia> listaCorrespondencia = new ArrayList<>();
+    private ArrayList<Correspondencia> listaCorrespondencia;
 
     public ControladorCorrespondencia() {
         this.listaCorrespondencia = new ArrayList<>();
     }
     
     public ControladorCorrespondencia( ArrayList listaCorrespondencia ) {
+        this.listaCorrespondencia = new ArrayList<>();
         this.listaCorrespondencia = new ArrayList<>(listaCorrespondencia);
     }
 

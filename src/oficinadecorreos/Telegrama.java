@@ -1,8 +1,8 @@
 package oficinadecorreos;
 
 public class Telegrama extends Correspondencia {
-    int cantidadPalabras;
-    double impuestoAplicado;
+    private int cantidadPalabras;
+    private double impuestoAplicado;
 
     public Telegrama(int cantidadPalabras, double impuestoAplicado, String nombre, String direccionDestinatario, String nombreRemitente) {
         super(nombre, direccionDestinatario, nombreRemitente);
