@@ -1,13 +1,40 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package oficinadecorreos;
 
-/**
- *
- * @author leodev
- */
-public class Carta {
+public class Carta extends Correspondencia {
     
+    String fechaEnvio;
+    boolean esDelExterior;
+
+    public Carta(String fechaEnvio, boolean esDelExterior, String nombre, String direccionDestinatario, String nombreRemitente) {
+        super(nombre, direccionDestinatario, nombreRemitente);
+        this.fechaEnvio = fechaEnvio;
+        this.esDelExterior = esDelExterior;
+    }
+
+    public String getFechaEnvio() {
+        return fechaEnvio;
+    }
+
+    public void setFechaEnvio(String fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
+    }
+
+    public boolean isEsDelExterior() {
+        return esDelExterior;
+    }
+
+    public void setEsDelExterior(boolean esDelExterior) {
+        this.esDelExterior = esDelExterior;
+    }
+    
+    @Override
+    public double cacularPrecio() {
+        
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Carta{" + "fechaEnvio=" + fechaEnvio + ", esDelExterior=" + esDelExterior + '}';
+    }
 }

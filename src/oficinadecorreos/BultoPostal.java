@@ -1,13 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package oficinadecorreos;
 
-/**
- *
- * @author leodev
- */
-public class BultoPostal {
+
+public class BultoPostal extends Correspondencia {
+    
+    double peso;
+    Urgencia urgencia;
+
+    public BultoPostal(double peso, Urgencia urgencia, String nombre, String direccionDestinatario, String nombreRemitente) {
+        super(nombre, direccionDestinatario, nombreRemitente);
+        this.peso = peso;
+        this.urgencia = urgencia;
+    }
+    
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public Urgencia getUrgencia() {
+        return urgencia;
+    }
+
+    public void setUrgencia(Urgencia urgencia) {
+        this.urgencia = urgencia;
+    }
     
 }
