@@ -206,7 +206,8 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_RecibirCorrespondenciaBtnActionPerformed
 
     private void CalcularGananciasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularGananciasBtnActionPerformed
-        // TODO add your handling code here:
+        double gananciasTotales = controladorCorrespondencia.calcularGananciaTotal();
+        JOptionPane.showMessageDialog(null, "La ganancia total de las cartas es: $" + gananciasTotales);
     }//GEN-LAST:event_CalcularGananciasBtnActionPerformed
 
     private void DespacharCorrespondenciaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DespacharCorrespondenciaBtnActionPerformed

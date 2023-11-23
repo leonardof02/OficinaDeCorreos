@@ -328,7 +328,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha de Envio"/>
+                <Property name="text" type="java.lang.String" value="Fecha de Envio (dd/mm/aaaa)"/>
               </Properties>
             </Component>
           </SubComponents>

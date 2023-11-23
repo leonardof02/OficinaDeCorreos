@@ -1,20 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package oficinadecorreos;
 
-import java.awt.Component;
+import java.time.LocalDate;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import java.time.format.DateTimeFormatter;
 
-/**
- *
- * @author leodev
- */
 public class FormularioRecibirCorrespondencia extends javax.swing.JFrame {
 
     private ControladorCorrespondencia controladorCorrespondencia;
@@ -189,7 +181,7 @@ public class FormularioRecibirCorrespondencia extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Fecha de Envio");
+        jLabel4.setText("Fecha de Envio (dd/mm/aaaa)");
 
         javax.swing.GroupLayout panelCartaLayout = new javax.swing.GroupLayout(panelCarta);
         panelCarta.setLayout(panelCartaLayout);
@@ -331,7 +323,7 @@ public class FormularioRecibirCorrespondencia extends javax.swing.JFrame {
 
             if (tipoDeCorrespondencia.equals("Carta")) {
 
-                String fechEnvio = FechaDeEnvioInput.getText();
+                LocalDate fechEnvio = LocalDate.parse( FechaDeEnvioInput.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy") );
                 boolean esDelExterior = esDelExteriorInput.isSelected();
 
                 controladorCorrespondencia.recibirCorrespondencia(new Carta(fechEnvio, esDelExterior, nombre, direccion, nombreRemitente));
